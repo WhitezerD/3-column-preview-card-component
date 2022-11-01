@@ -1,0 +1,209 @@
+:root {
+    --width-mb: 20.625rem;
+    --width-desktop: 90rem;
+
+    --ff-primary: 'Lexend Deca', sans-serif;
+    --ff-primary-header: 'Big Shoulders Display', cursive;
+
+    --fs-primary-400: .9375rem;
+    --fs-primary-700: 2.5rem;
+
+    --clr-neutral-primary: hsla(0, 0%, 100%, 0.75);
+    --clr-neutral-secondary: hsl(0, 0%, 95%);
+
+    --clr-sedans-bg: hsl(31, 77%, 52%);
+    --clr-suvs-bg: hsl(184, 100%, 22%);
+    --clr-luxury-bg: hsl(179, 100%, 13%);
+
+    --ff-header: var(--ff-primary-header);
+    --ff-content: var(--ff-primary);
+    --ff-btn: var(--ff-primary);
+
+    --clr-bg: var(--clr-neutral-secondary);
+    --clr-header: var(--clr-neutral-secondary);
+    --clr-content: var(--clr-neutral-primary);
+    --clr-btn: var(--clr-neutral-secondary);
+}
+
+/* // https://piccalil.li/blog/a-modern-css-reset */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+    height: 100%;
+    background-color: var(--clr-bg);
+    position: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    margin-top: 6rem;
+}
+
+.column-evenly {
+    display: grid;
+    grid-template-columns: 1, 1fr;
+}
+
+.banner {
+    width: var(--width-mb);
+    padding: 3rem;
+}
+
+.banner-sedans {
+    background-color: var(--clr-sedans-bg);
+}
+
+.banner-suvs {
+    background-color: var(--clr-suvs-bg);
+}
+
+.banner-luxury {
+    background-color: var(--clr-luxury-bg);
+}
+
+.banner:first-child {
+    border-radius: 1em 1em 0 0;
+}
+
+.banner:last-child {
+    border-radius: 0 0 1em 1em;
+}
+
+.header {
+    font-family: var(--ff-header);
+    font-size: var(--fs-primary-700);
+    color: var(--clr-header);
+    margin-top: 1.5rem;
+    text-transform: uppercase;
+}
+
+.content {
+    font-family: var(--ff-content);
+    font-size: var(--fs-primary-400);
+    color: var(--clr-content);
+    margin-top: 1.5rem;
+}
+
+.button {
+    background-color: var(--clr-btn);
+    font-family: var(--ff-btn);
+    font-size: var(--fs-primary-400);
+    padding: 1rem 2rem 1rem 2rem;
+    border-radius: 3rem;
+    margin-top: 1.5rem;
+    border: none;
+    cursor: pointer;
+}
+
+.button-sedans {
+    color: var(--clr-sedans-bg);
+    border: .16rem solid var(--clr-sedans-bg);
+}
+
+.button-suvs {
+    color: var(--clr-suvs-bg);
+    border: .16rem solid var(--clr-suvs-bg);
+}
+
+.button-luxury {
+    color: var(--clr-luxury-bg);
+    border: .16rem solid var(--clr-luxury-bg);
+}
+
+.button:hover {
+    background: none;
+    color: var(--clr-btn);
+    border: .16rem solid var(--clr-btn);
+}
+
+footer {
+    position: absolute;
+    margin-top: 100rem;
+}
+
+@media (min-width: 61.875rem) {
+    .column-evenly {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .banner:first-child {
+        border-radius: 1em 0 0 1em;
+    }
+
+    .banner:last-child {
+        border-radius: 0 1em 1em 0;
+    }
+
+    footer {
+        margin-top: 50rem;
+    }
+}
